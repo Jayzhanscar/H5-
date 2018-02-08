@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="redis 存储机制"/>
+
+
+
+
+  <meta name="keywords" content="redis," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="zhanL·Jay | 博客">
+
+
+
+
+
+
+<link rel="canonical" href="http://yoursite.com/2018/02/09/redis-存储机制/"/>
+
+
+<meta name="description" content="Redis 存储机制 Redis存储机制分成两种Snapshot和AOF。无论是那种机制,Redis都是将数据存储在内存中。Snapshot工作原理: 是将数据先存储在内存，然后当数据累计达到某些设定的伐值的时候，就会触发一次DUMP操作，将变化的数据一次性写入数据文件（RDB文件）。￼AOF 工作原理: 是将数据也是先存在内存，但是在存储的时候会使用调用fsync来完成对本次写操作的日志记录，这">
+<meta name="keywords" content="redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis 存储机制">
+<meta property="og:url" content="http://yoursite.com/2018/02/09/redis-存储机制/index.html">
+<meta property="og:site_name" content="zhanL·Jay | 博客">
+<meta property="og:description" content="Redis 存储机制 Redis存储机制分成两种Snapshot和AOF。无论是那种机制,Redis都是将数据存储在内存中。Snapshot工作原理: 是将数据先存储在内存，然后当数据累计达到某些设定的伐值的时候，就会触发一次DUMP操作，将变化的数据一次性写入数据文件（RDB文件）。￼AOF 工作原理: 是将数据也是先存在内存，但是在存储的时候会使用调用fsync来完成对本次写操作的日志记录，这">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-02-08T20:01:10.451Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="redis 存储机制">
+<meta name="twitter:description" content="Redis 存储机制 Redis存储机制分成两种Snapshot和AOF。无论是那种机制,Redis都是将数据存储在内存中。Snapshot工作原理: 是将数据先存储在内存，然后当数据累计达到某些设定的伐值的时候，就会触发一次DUMP操作，将变化的数据一次性写入数据文件（RDB文件）。￼AOF 工作原理: 是将数据也是先存在内存，但是在存储的时候会使用调用fsync来完成对本次写操作的日志记录，这">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> redis 存储机制 - zhanL·Jay | 博客 </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">zhanL·Jay | 博客</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          redis 存储机制
+        
+      </h1>
+
+      <time class="post-time">
+          2月 09 2018
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <p>Redis 存储机制</p>
+<p>Redis存储机制分成两种Snapshot和AOF。无论是那种机制,Redis都是将数据存储在内存中。<br>Snapshot工作原理: 是将数据先存储在内存，然后当数据累计达到某些设定的伐值的时候，就会触发一次DUMP操作，将变化的数据一次性写入数据文件（RDB文件）。<br>￼<br>AOF 工作原理: 是将数据也是先存在内存，但是在存储的时候会使用调用fsync来完成对本次写操作的日志记录，这个日志揭露文件其实是一个基于Redis网络交互协议的文本文件。AOF调用fsync也不是说全部都是无阻塞的，在某些系统上可能出现fsync阻塞进程的情况，对于这种情况可以通过配置修改，但默认情况不要修改。AOF最关键的配置就是关于调用fsync追加日志文件的平率，有两种预设频率，always每次记录进来都添加，everysecond 每秒添加一次。两个配置各有所长后面分析。由于是采用日志追加的方式来持久话数据，所以引出了第二个日志的概念：rewrite. 后面介绍它的由来。<br>￼<br>存储模式性能和安全比较：<br>1.性能<br>Snapshot方式的性能是要明显高于AOF方式的，原因有两点：<br>采用2进制方式存储数据，数据文件比较小，加载快速。<br>存储的时候是按照配置中的save策略来存储，每次都是聚合很多数据批量存储，写入的效率很好，而AOF则一般都是工作在实时存储或者准实时模式下。相对来说存储的频率高，效率却偏低。<br>2.数据安全<br>AOF数据安全性高于Snapshot存储，原因：<br>Snapshot存储是基于累计批量的思想，也就是说在允许的情况下，累计的数据越多那么写入效率也就越高，但数据的累计是靠时间的积累完成的，那么如果在长时间数据不写入RDB，但Redis又遇到了崩溃，那么没有写入的数据就无法恢复了，但是AOF方式偏偏相反，根据AOF配置的存储频率的策略可以做到最少的数据丢失和较高的数据恢复能力。<br>说完了性能和安全，这里不得不提的就是在Redis中的Rewrite的功能，AOF的存储是按照记录日志的方式去工作的，那么成千上万的数据插入必然导致日志文件的扩大，Redis这个时候会根据配置合理触发Rewrite操作，所谓Rewrite就是将日志文件中的所有数据都重新写到另外一个新的日志文件中，但是不同的是，对于老日志文件中对于Key的多次操作，只保留最终的值的那次操作记录到日志文件中，从而缩小日志文件的大小。这里有两个配置需要注意：<br>auto-aof-rewrite-percentage 100 （当前写入日志文件的大小占到初始日志文件大小的某个百分比时触发Rewrite）<br>auto-aof-rewrite-min-size 64mb （本次Rewrite最小的写入数据良）<br>两个条件需要同时满足。</p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+		
+		<div class="post-tags">
+		  
+			<a href="/tags/redis/">redis</a>
+		  
+		</div>
+		
+
+        
+        
+  <nav class="post-nav">
+    
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2018
+    <span class="footer-author">zhanlj.</span>
+    <span class="power-by">
+        由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a> 强力驱动
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
