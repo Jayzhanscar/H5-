@@ -152,10 +152,11 @@ text-align: center">
             var reader = new FileReader();
             reader.onload = function (e) {
                 document.getElementById("image").src = e.target.result;
+                $('#code').css('display', 'block')
             };
             reader.readAsDataURL(file);
 
-            $('#code').css('display', 'block')
+
         }
 
 
