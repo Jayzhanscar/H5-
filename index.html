@@ -74,10 +74,10 @@
             display: block"><img class="moni" width="70%" src="img/dianji.png"></div>
 </div>
 <div id="p3" style="display: none">
-    <img   class="iimg"  id="load1" src="img/画面1改.gif" width="100%">
+    <img   class="iimg"  id="load1" src="img/画面1缩小版3.gif" width="100%">
 </div>
 <div id="p4" style="display: none">
-    <img src="img/20181009092310.gif" width="100%">
+    <img src="img/20181009152346.gif" width="100%">
 </div>
 <!--
 <div id="p5" style="display: none">
@@ -114,6 +114,7 @@ text-align: center">
     </a>
 
     <img  id='code' src="img/1539028809.png" style="position: absolute;bottom: 3%;width: 40%;display: none;margin-left: 29%;z-index: 999">
+    <button id="gg" onclick="succeed()" style="border:0; background-color: #1FB6DB;display: none;height: 5%;width: 20%;position: absolute;bottom: 30%;border-radius: 6%"> 生成照片</button>
 
 
     <div style="
@@ -155,7 +156,8 @@ text-align: center">
         var reader = new FileReader();
         reader.onload = function (e) {
             document.getElementById("image").src = e.target.result;
-            $('#code').css('display', 'block')
+            $('#gg').css('display', 'block');
+
 
         };
         reader.readAsDataURL(file);
@@ -192,7 +194,7 @@ text-align: center">
 
     var start = window.setTimeout(function () {
 
-                $('#p2').css('display', 'block');
+                $('#p8').css('display', 'block');
                 $('#bonfire-pageloader').css('display', 'none');
 
                 function change(num) {
@@ -218,7 +220,12 @@ text-align: center">
 
     }, 5000)
 
+   function succeed() {
+        $('#gg').css('display', 'none');
+       $('#code').css('display', 'block')
 
+
+   }
 
 </script>
 </html>
