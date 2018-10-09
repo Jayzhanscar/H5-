@@ -21,7 +21,8 @@
 
 
 </div>
-<div id="p2" style="width: 100%;height: 100%;display: block; position: absolute;background-size:100% 100%; background-image: url(img/chushi.png)">
+<div id="p2" style="width: 100%;height: 100%;display: none; position: absolute;background-size:100% 100%; background-image: url(img/chushi.png)">
+    <!--
     <img src="img/logo.png" style="position: absolute;
     bottom: 57%;
     width: 62%;
@@ -31,19 +32,19 @@
     bottom: 51%;
     width: 74%;
     right: 12%;
-"/>
-    <img  class="shake-slow shaker" src="img/dou.png" style=" position: absolute;
-    bottom: 17%;
+"/> -->
+    <img  class="shake-slow shaker" src="img/home.png" style=" position: absolute;
+    bottom: 50%;
     width: 102%;
-    height: 80%;
-    right: -17%;
+    height: 58%;
+    right: 25%;
 "/>
     <img  id="finger" class="ballon" src="img/手指.png" style="position: absolute;
     bottom: 7%;
     width: 14%;
     right: 19%;
 "/>
-    <div id="id" style="  width: 20%;
+    <div   onclick="longPress()"  style="  width: 20%;
           height: 10%;
 
           position: absolute;
@@ -55,7 +56,7 @@
     <img src="img/画面1改.gif" width="100%">
 </div>
 <div id="p4" style="display: none">
-    <img src="img/1538880992823853-(2)(1).gif" width="100%">
+    <img src="img/20181009092310.gif" width="100%">
 </div>
 <div id="p5" style="display: none">
     <img src="img/11538880992823853-(3).gif" width="100%">
@@ -99,6 +100,47 @@ text-align: center">
 </body>
 <script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
 <script>
+    function longPress(){
+        timeOutEvent = 0;
+        $('#power')[0].play();
+        $('#myaudio')[0].pause();
+
+        var RR = window.setTimeout(function () {
+            $('#dong')[0].play();
+            $('#p1').css('display', 'none');
+            $('#p2').css('display', 'none');
+            $('#p3').css('display', 'block');
+            var t2 = window.setTimeout(function () {
+                $('#p3').css('display', 'none');
+                $('#p4').css('display', 'block');
+
+
+
+                            var t4 = window.setTimeout(function () {
+                                $('#myaudio')[0].play();
+                                $('#dong')[0].pause()
+                                $('#p4').css('display', 'none');
+                                $('#p7').css('display', 'none');
+                                $('#p5').css('display', 'none');
+                                $('#p8').css('display', 'block');
+
+
+
+                            }, 21000);//使用字符串执行方法
+
+
+
+
+
+
+
+            }, 6000)
+
+        }, 6000);//使用字符串执行方法
+
+    }
+    document.addEventListener("DOMContentLoaded", function(){
+        $('#p2').css('display', 'block');
 
         function change(num) {
             console.log(num);
@@ -160,7 +202,8 @@ text-align: center">
         }
 
 
-        var timeOutEvent=0;$(function(){
+        var timeOutEvent=0;
+        $(function(){
             $("#id").on({
                 touchstart: function(e){
                     timeOutEvent = setTimeout("longPress()",500);
@@ -175,58 +218,16 @@ text-align: center">
                         console.log("你这是点击，不是长按");
                     } 			return false; 		}
             })});
-        function longPress(){
-            timeOutEvent = 0;
-            $('#power')[0].play();
-            $('#myaudio')[0].pause();
-
-            var RR = window.setTimeout(function () {
-                $('#dong')[0].play()
-                $('#p1').css('display', 'none');
-                $('#p2').css('display', 'none');
-                $('#p3').css('display', 'block');
-                var t2 = window.setTimeout(function () {
-                    $('#p3').css('display', 'none');
-                    $('#p4').css('display', 'block');
-                    var t3 = window.setTimeout(function () {
-                        $('#p4').css('display', 'none');
-                        $('#p5').css('display', 'block');
-                        var t4 = window.setTimeout(function () {
-                            $('#p5').css('display', 'none');
-                            $('#p6').css('display', 'block');
-                            var t4 = window.setTimeout(function () {
-                                $('#p6').css('display', 'none');
-                                $('#p7').css('display', 'block');
-                                $('#p5').css('display', 'none');
-                                var t4 = window.setTimeout(function () {
-                                    $('#myaudio')[0].play();
-                                    $('#dong')[0].pause()
-                                    $('#p6').css('display', 'none');
-                                    $('#p7').css('display', 'none');
-                                    $('#p5').css('display', 'none');
-                                    $('#p8').css('display', 'block');
 
 
 
-                                }, 2000);//使用字符串执行方法
-
-
-                            }, 6000);//使用字符串执行方法
-
-
-                        }, 6000);//使用字符串执行方法
-
-                    }, 6000);//使用字符串执行方法
-
-                }, 6000)
-
-            }, 6000);//使用字符串执行方法
-
-        }
 
         $('#myaudio')[0].play();
         $('#dong')[0].pause()
 
+
+
+    });
 
 
 </script>
