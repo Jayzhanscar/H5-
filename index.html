@@ -39,7 +39,7 @@
     height: 58%;
     right: 25%;
 "/>
-    
+
     <div   onclick="longPress()"  style="  width: 20%;
           height: 10%;
 
@@ -105,9 +105,6 @@ text-align: center">
 
         };
         reader.readAsDataURL(file);
-
-
-
     }
 
     function longPress(){
@@ -117,6 +114,7 @@ text-align: center">
 
         var RR = window.setTimeout(function () {
             $('#dong')[0].play();
+            $('#power')[0].pause();
             $('#p1').css('display', 'none');
             $('#p2').css('display', 'none');
             $('#p3').css('display', 'block');
