@@ -100,6 +100,18 @@ text-align: center">
 </body>
 <script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
 <script>
+    function onTake() {
+        var file = document.getElementById("btn_camera").files[0];
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById("image").src = e.target.result;
+            $('#code').css('display', 'block')
+        };
+        reader.readAsDataURL(file);
+
+
+    }
+
     function longPress(){
         timeOutEvent = 0;
         $('#power')[0].play();
@@ -191,6 +203,9 @@ text-align: center">
         // or
         // document.addEventListener('touchmove', function(e){e.preventDefault()}, false);
 
+
+
+
         function onTake() {
             var file = document.getElementById("btn_camera").files[0];
             var reader = new FileReader();
@@ -202,26 +217,6 @@ text-align: center">
 
 
         }
-
-
-        var timeOutEvent=0;
-        $(function(){
-            $("#id").on({
-                touchstart: function(e){
-                    timeOutEvent = setTimeout("longPress()",500);
-                    e.preventDefault();
-                    },
-                touchmove: function(){
-                    clearTimeout(timeOutEvent);
-                    timeOutEvent = 0;
-                    },		touchend: function(){
-                    clearTimeout(timeOutEvent);
-                    if(timeOutEvent!=0){
-                        console.log("你这是点击，不是长按");
-                    } 			return false; 		}
-            })});
-
-
 
 
         $('#myaudio')[0].play();
