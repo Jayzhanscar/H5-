@@ -91,7 +91,7 @@ text-align: center">
     </a>
     <img  id='code' src="img/1539028809.png" style="position: absolute;bottom: 3%;width: 40%;display: none;margin-left: 29%;z-index: 999">
 
-    <img  id="image"   style="opacity:0.5;height:17%;width: 25%;bottom: 37%;position: absolute;margin-left: -26%;border-bottom-left-radius: 50%;border-bottom-right-radius: 50px;"/>
+    <img  id="image"   style="opacity:0.5;height:17%;width: 25%;bottom: 37%;position: absolute;margin-left: 36%;border-bottom-left-radius: 50%;border-bottom-right-radius: 50px;"/>
 </div>
 
 <audio src="http://img.tukuppt.com/preview_music/00/00/01/seemp3-5ba0b1926cb034414.mp3" id="myaudio"   controls autoplay loop="true" hidden="true"></audio>
@@ -106,9 +106,11 @@ text-align: center">
         reader.onload = function (e) {
             document.getElementById("image").src = e.target.result;
             $('#code').css('display', 'block')
+
         };
         reader.readAsDataURL(file);
 
+        
 
     }
 
