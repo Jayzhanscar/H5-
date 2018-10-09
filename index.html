@@ -54,12 +54,14 @@
 <div id="p4" style="display: none">
     <img src="img/20181009092310.gif" width="100%">
 </div>
+<!--
 <div id="p5" style="display: none">
     <img src="img/11538880992823853-(3).gif" width="100%">
 </div>
 <div id="p6" style="display: none">
     <img src="img/1538880992823853-(4)(1).gif" width="100%">
 </div>
+m-->
 
 <div id="p7" style="width: 114%;
     height: 106%;
@@ -115,6 +117,7 @@ text-align: center">
         var RR = window.setTimeout(function () {
             $('#dong')[0].play();
             $('#power')[0].pause();
+            console.log('我要开始播放了3453545',  $('#dong')[0].play())
             $('#p1').css('display', 'none');
             $('#p2').css('display', 'none');
             $('#p3').css('display', 'block');
@@ -138,9 +141,6 @@ text-align: center">
 
 
                             }, 21000);//使用字符串执行方法
-
-
-
 
 
 
@@ -199,21 +199,6 @@ text-align: center">
         });
         // or
         // document.addEventListener('touchmove', function(e){e.preventDefault()}, false);
-
-
-
-
-        function onTake() {
-            var file = document.getElementById("btn_camera").files[0];
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                document.getElementById("image").src = e.target.result;
-                $('#code').css('display', 'block')
-            };
-            reader.readAsDataURL(file);
-
-
-        }
 
 
         $('#myaudio')[0].play();
