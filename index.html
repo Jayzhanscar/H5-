@@ -150,6 +150,12 @@ text-align: center">
 </body>
 <script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
 <script>
+
+    $(document.body).css({
+        "overflow-x":"hidden",
+        "overflow-y":"hidden"
+    });
+    
     function onTake() {
         var file = document.getElementById("btn_camera").files[0];
         var reader = new FileReader();
