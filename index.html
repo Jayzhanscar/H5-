@@ -163,7 +163,8 @@ text-align: center">
 
         }, 6000);//使用字符串执行方法
     }
-    document.addEventListener("DOMContentLoaded", function(){
+    window.onload =function()
+    {
         $('#p2').css('display', 'block');
 
         function change(num) {
@@ -213,6 +214,6 @@ text-align: center">
         // document.addEventListener('touchmove', function(e){e.preventDefault()}, false);
         $('#myaudio')[0].play();
         $('#dong')[0].pause()
-    });
+    }
 </script>
 </html>
