@@ -29,7 +29,7 @@
     position: relative;
     cursor: pointer;
     color: #888;
-    background: #fafafa;
+    background: rgb(31, 182, 219);
     border-radius: 4px;
     overflow: hidden;
     display: inline-block;
@@ -53,8 +53,8 @@
 
 .a-upload:hover {
     color: #444;
-    background: #eee;
-    border-color: #ccc;
+    background: rgb(31, 182, 219);
+    border-color: rgb(31, 182, 219);
     text-decoration: none
 }
 .moni{
