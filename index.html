@@ -5,23 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>换能博士</title>
     <link rel="stylesheet" href="index.css"/>
+    <link rel="stylesheet" id="pageloader-css"  href="pageloader.css" type="text/css" media="all" />
+
 
 </head>
 <body style="background-color: #f2f2f2" onmousewheel="return false;">
+<div id="bonfire-pageloader" style="background-color: #1d2f33;background-image: url(img/chushi.png)">
+    <div class="bonfire-pageloader-icon" style="margin-left: 40%;margin-top: 78%">
+        <div>画面加载中...</div>
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+			 width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+		<path id="loading-12-icon" d="M291,82.219c0,16.568-13.432,30-30,30s-30-13.432-30-30s13.432-30,30-30S291,65.65,291,82.219z
+			 M261,404.781c-15.188,0-27.5,12.312-27.5,27.5s12.312,27.5,27.5,27.5s27.5-12.312,27.5-27.5S276.188,404.781,261,404.781z
+			 M361.504,113.167c-4.142,7.173-13.314,9.631-20.487,5.489c-7.173-4.141-9.631-13.313-5.49-20.487
+			c4.142-7.173,13.314-9.631,20.488-5.489C363.188,96.821,365.645,105.994,361.504,113.167z M188.484,382.851
+			c-14.348-8.284-32.697-3.368-40.98,10.98c-8.285,14.349-3.367,32.696,10.98,40.981c14.35,8.283,32.697,3.367,40.98-10.981
+			C207.75,409.482,202.834,391.135,188.484,382.851z M421.33,184.888c-8.368,4.831-19.07,1.965-23.901-6.404
+			c-4.832-8.368-1.965-19.07,6.404-23.902c8.368-4.831,19.069-1.964,23.9,6.405C432.566,169.354,429.699,180.056,421.33,184.888z
+			 M135.399,329.767c-8.285-14.35-26.633-19.266-40.982-10.982c-14.348,8.285-19.264,26.633-10.979,40.982
+			c8.284,14.348,26.632,19.264,40.981,10.98C138.767,362.462,143.683,344.114,135.399,329.767z M436.031,277.249
+			c-11.044,0-20-8.953-20-19.999c0-11.045,8.955-20.001,20.001-20.001c11.044,0,19.999,8.955,19.999,20.002
+			C456.031,268.295,447.078,277.249,436.031,277.249z M115.97,257.251c-0.001-16.57-13.433-30.001-30.001-30.002
+			c-16.568,0.001-29.999,13.432-30,30.002c0.001,16.566,13.433,29.998,30.001,30C102.538,287.249,115.969,273.817,115.97,257.251z
+			 M401.333,364.248c-10.759-6.212-14.446-19.97-8.234-30.73c6.212-10.759,19.971-14.446,30.731-8.233
+			c10.759,6.211,14.445,19.971,8.232,30.73C425.852,366.774,412.094,370.46,401.333,364.248z M135.398,184.736
+			c8.285-14.352,3.368-32.698-10.98-40.983c-14.349-8.283-32.695-3.367-40.981,10.982c-8.282,14.348-3.366,32.696,10.981,40.981
+			C108.768,204,127.115,199.082,135.398,184.736z M326.869,421.328c-6.902-11.953-2.807-27.242,9.148-34.145
+			s27.243-2.806,34.146,9.149c6.902,11.954,2.806,27.243-9.15,34.145C349.059,437.381,333.771,433.284,326.869,421.328z
+			 M188.482,131.649c14.352-8.286,19.266-26.633,10.982-40.982c-8.285-14.348-26.631-19.264-40.982-10.98
+			c-14.346,8.285-19.264,26.633-10.98,40.982C155.787,135.017,174.137,139.932,188.482,131.649z"/>
+		</svg>
+
+    </div>
+</div>
+
 <div id='p1' style="text-align: center;background-color: #F2F2F2;height: 100%;display: none">
 
 
-    <div style="text-align: center;">
-        <img src="img/111.jpeg"  width="30%">
-
-    </div>
-    <div><img width="50%" style="margin-top: 5%" src="img/222.jpeg"></div>
-    <div> <img width="50%" style="margin-top: 20%" src="img/ddd.jpeg"></div>
-    <div onclick="change(1)"> <img  width="50%" style="margin-top: 30%" src="img/444.jpeg"></div>
-
 
 </div>
-<div id="p2" style="width: 100%;height: 100%;display: none; position: absolute;background-size:100% 100%; background-image: url(img/chushi.png)">
+<div id="p2" style="width: 100%;height: 100%;display: block; position: absolute;">
+    <img  class="iimg" id=" load2" src="img/chushi.png" style="width: 100%;height: 100%"/>
     <!--
     <img src="img/logo.png" style="position: absolute;
     bottom: 57%;
@@ -50,7 +74,7 @@
             display: block"><img class="moni" width="70%" src="img/dianji.png"></div>
 </div>
 <div id="p3" style="display: none">
-    <img src="img/画面1改.gif" width="100%">
+    <img   class="iimg"  id="load1" src="img/画面1改.gif" width="100%">
 </div>
 <div id="p4" style="display: none">
     <img src="img/20181009092310.gif" width="100%">
@@ -119,6 +143,7 @@ text-align: center">
 
 </div>
 
+
 <audio src="http://img.tukuppt.com/preview_music/00/00/01/seemp3-5ba0b1926cb034414.mp3" id="myaudio"   controls autoplay loop="true" hidden="true"></audio>
 <audio src="http://img.tukuppt.com/origin_music/00/07/60/pd-5b7a1e7c1c10c847.mp3" id="power"></audio>
 <audio src="http://img.tukuppt.com/preview_music/00/00/06/seemp3-5ba0b0f99a0257485.mp3" id="dong"> </audio>
@@ -146,7 +171,7 @@ text-align: center">
             $('#p2').css('display', 'none');
             $('#p3').css('display', 'block');
             var t2 = window.setTimeout(function () {
-                console.log('我要开始播放了',  $('#dong')[0].play())
+                console.log('我要开始播放了',  $('#dong')[0].play());
                 $('#dong')[0].play();
                 $('#power')[0].pause();
                 $('#p3').css('display', 'none');
@@ -163,57 +188,37 @@ text-align: center">
 
         }, 6000);//使用字符串执行方法
     }
-    window.onload =function()
-    {
-        $('#p2').css('display', 'block');
 
-        function change(num) {
-            console.log(num);
-            if (num == 1) {
-                $('#p1').css('display', 'none');
-                $('#id').css('display', 'block');
+
+    var start = window.setTimeout(function () {
+
                 $('#p2').css('display', 'block');
-            }
-        }
+                $('#bonfire-pageloader').css('display', 'none');
 
+                function change(num) {
+                    console.log(num);
+                    if (num == 1) {
+                        $('#p1').css('display', 'none');
+                        $('#id').css('display', 'block');
+                        $('#p2').css('display', 'block');
+                    }
+                }
 
-//        var _x_start, _y_start, _x_move, _y_move, _x_end, _y_end, left_start, top_start;
-//        document.getElementById("id").addEventListener("touchstart", function (e) {
-//
-//            _x_start = e.touches[0].pageX;
-//            _y_start = e.touches[0].pageY;
-//            // console.log("start",_x_start)
-//            left_start = $("#id").css("left");
-//            top_start = $("#id").css("top");
-//
-//        })
-//        document.getElementById("id").addEventListener("touchmove", function (e) {
-//            _x_move = e.touches[0].pageX;
-//            _y_move = e.touches[0].pageY;
-//            // console.log("move",_x_move)
-//            $("#id").css("left", parseFloat(_x_move) - parseFloat(_x_start) + parseFloat(left_start) + "px");
-//            $("#id").css("top", parseFloat(_y_move) - parseFloat(_y_start) + parseFloat(top_start) + "px");
-//            console.log(parseFloat(_y_move) - parseFloat(_y_start) + parseFloat(top_start));
-//            if (parseInt(parseFloat(_y_move) - parseFloat(_y_start) + parseFloat(top_start)) < $("#finger").offset().top) {
-//
-//
-//
-//
-//            }
-//        });
-//        document.getElementById("id").addEventListener("touchend", function (e) {
-//            var _x_end = e.changedTouches[0].pageX;
-//            var _y_end = e.changedTouches[0].pageY;
-//            // console.log("end",_x_end)
-//        });
 //        //阻止浏览器下拉事件
-        $('body').on('touchmove', function (event) {
-            event.preventDefault();
-        });
-        // or
-        // document.addEventListener('touchmove', function(e){e.preventDefault()}, false);
-        $('#myaudio')[0].play();
-        $('#dong')[0].pause()
-    }
+                $('body').on('touchmove', function (event) {
+                    event.preventDefault();
+                });
+                // or
+                // document.addEventListener('touchmove', function(e){e.preventDefault()}, false);
+                $('#myaudio')[0].play();
+                $('#dong')[0].pause()
+
+
+
+
+    }, 5000)
+
+
+
 </script>
 </html>
