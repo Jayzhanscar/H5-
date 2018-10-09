@@ -119,6 +119,7 @@ text-align: center">
             $('#p2').css('display', 'none');
             $('#p3').css('display', 'block');
             var t2 = window.setTimeout(function () {
+                console.log('我要开始播放了',  $('#dong')[0].play())
                 $('#dong')[0].play();
                 $('#power')[0].pause();
                 $('#p3').css('display', 'none');
