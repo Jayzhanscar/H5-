@@ -77,7 +77,7 @@
     <img   class="iimg"  id="load1" src="img/画面1缩小版3.gif" width="100%">
 </div>
 <div id="p4" style="display: none">
-    <img src="img/20181009092310.gif" width="100%">
+    <img src="img/动画4.gif" width="100%">
 </div>
 <!--
 <div id="p5" style="display: none">
@@ -177,14 +177,22 @@ text-align: center">
                 $('#power')[0].pause();
                 $('#p3').css('display', 'none');
                 $('#p4').css('display', 'block');
-                var t4 = window.setTimeout(function () {
-                    $('#myaudio')[0].play();
-                    $('#dong')[0].pause();
+                var ttttt = window.setTimeout(function () {
                     $('#p4').css('display', 'none');
-                    $('#p7').css('display', 'none');
-                    $('#p5').css('display', 'none');
-                    $('#p8').css('display', 'block');
-                }, 21000);//使用字符串执行方法
+                    $('#p7').css('display', 'block');
+
+
+                    var t4 = window.setTimeout(function () {
+                        $('#myaudio')[0].play();
+                        $('#dong')[0].pause();
+                        $('#p4').css('display', 'none');
+                        $('#p7').css('display', 'none');
+                        $('#p5').css('display', 'none');
+                        $('#p8').css('display', 'block');
+                    }, 2000);//使用字符串执行方法
+
+                }, 20000);
+
             }, 6000)
 
         }, 6000);//使用字符串执行方法
