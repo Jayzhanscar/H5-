@@ -4156,3 +4156,24 @@
     margin-left: 2%;
     margin-top: 2%;
 }
+.cover {
+    width: 180px;
+    height: 180px;
+
+}
+.cover:after {
+    position: absolute;
+    content: '';
+    width: 20%;
+    height: 20%;
+    top: 0;
+    left: 0;
+    box-shadow:0 0 50px 30px #ffffff inset;
+}
+imggg{
+    width: 180px;
+    height: 180px;
+    display: block;
+    margin-bottom: 20px;
+}
+

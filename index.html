@@ -87,9 +87,35 @@ text-align: center">
         <input  id="btn_camera" type="file" accept="image/*"   onchange="onTake()">点击拍照
 
     </a>
+
     <img  id='code' src="img/1539028809.png" style="position: absolute;bottom: 3%;width: 40%;display: none;margin-left: 29%;z-index: 999">
 
-    <img  id="image"   style="opacity:0.5;height:17%;width: 25%;bottom: 37%;position: absolute;margin-left: 36%;border-bottom-left-radius: 50%;border-bottom-right-radius: 50px;"/>
+
+    <div style="
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        box-shadow: 0 0 17px 14px rgb(226,166, 128) inset;
+        margin-left: 36%;
+        width: 24%;
+        height: 18%;
+        position: absolute;
+        bottom: 37%;
+        border-top-left-radius: 31%;
+        border-top-right-radius: 31%;
+        z-index: 56;"  ></div>
+    <img  id="image"   style=" opacity: 0.7;
+    height: 17%;
+    width: 21%;
+    /* box-shadow: 0 0 50px 30px #ffffff inset; */
+    bottom: 38%;
+    position: absolute;
+    margin-left: 38%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 30%;
+    border-top-right-radius: 41%;
+"/>
+
 </div>
 
 <audio src="http://img.tukuppt.com/preview_music/00/00/01/seemp3-5ba0b1926cb034414.mp3" id="myaudio"   controls autoplay loop="true" hidden="true"></audio>
@@ -124,31 +150,20 @@ text-align: center">
                 $('#power')[0].pause();
                 $('#p3').css('display', 'none');
                 $('#p4').css('display', 'block');
-
-
-
-                            var t4 = window.setTimeout(function () {
-                                $('#myaudio')[0].play();
-                                $('#dong')[0].pause()
-                                $('#p4').css('display', 'none');
-                                $('#p7').css('display', 'none');
-                                $('#p5').css('display', 'none');
-                                $('#p8').css('display', 'block');
-
-
-
-                            }, 21000);//使用字符串执行方法
-
-
-
-
+                var t4 = window.setTimeout(function () {
+                    $('#myaudio')[0].play();
+                    $('#dong')[0].pause();
+                    $('#p4').css('display', 'none');
+                    $('#p7').css('display', 'none');
+                    $('#p5').css('display', 'none');
+                    $('#p8').css('display', 'block');
+                }, 21000);//使用字符串执行方法
             }, 6000)
 
         }, 6000);//使用字符串执行方法
-
     }
     document.addEventListener("DOMContentLoaded", function(){
-        $('#p2').css('display', 'block');
+        $('#p8').css('display', 'block');
 
         function change(num) {
             console.log(num);
@@ -182,7 +197,6 @@ text-align: center">
 //
 //
 //
-//
 //            }
 //        });
 //        document.getElementById("id").addEventListener("touchend", function (e) {
@@ -196,15 +210,8 @@ text-align: center">
         });
         // or
         // document.addEventListener('touchmove', function(e){e.preventDefault()}, false);
-
-
         $('#myaudio')[0].play();
         $('#dong')[0].pause()
-
-
-
     });
-
-
 </script>
 </html>
