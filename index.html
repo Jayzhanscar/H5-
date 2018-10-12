@@ -6,10 +6,36 @@
     <title>换能博士</title>
     <link rel="stylesheet" href="http://storage.56iq.net/group1/M00/4F/21/CgoKQ1u8eeCAPWqBAAGs-4tg9Lg367.css"/>
     <link rel="stylesheet" id="pageloader-css"  href="http://storage.56iq.net/group1/M00/4F/21/CgoKQ1u8eiiAN-0QAAANcd4DM4I644.css" type="text/css" media="all" />
-
+<style>
+    .className{
+        -webkit-animation: twinkling 1s infinite ease-in-out
+    }
+    .animated{
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both
+    }
+    @-webkit-keyframes twinkling{
+        0%{
+            opacity: 0.5;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+    @keyframes twinkling{
+        0%{
+            opacity: 0.5;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+</style>
 
 </head>
-<body style="background-color: #f2f2f2;height: 100%;overflow: hidden" onmousewheel="return false;">
+<body style="background-color: #f2f2f2;overflow: hidden" onmousewheel="return false;">
 <div id="bonfire-pageloader" >
     <div class="bonfire-pageloader-icon" style="margin-left: 40%;margin-top: 78%">
         <div>画面加载中...</div>
@@ -44,8 +70,8 @@
 
 
 </div>
-<div id="p2" style="width: 100%;height: 100%;display: block; position: absolute;">
-    <img  class="iimg" id=" load2" src="http://storage.56iq.net/group1/M00/4F/21/CgoKQ1u8eYqAdzXhAAKAvf_XwB8840.png" style="width: 100%;height: 100%"/>
+<div id="p2" style="width: 100%;height: 100%;display: block; position: absolute;text-align: center">
+    <img  class="iimg" id=" load2" src="img/WechatIMG3690.jpeg" style="height: 100%;text-align: center"/>
     <!--
     <img src="img/logo.png" style="position: absolute;
     bottom: 57%;
@@ -57,13 +83,30 @@
     width: 74%;
     right: 12%;
 "/> -->
-    <img  class="shake-slow shaker" src="img/home.png" style="
-    position: absolute;
-    bottom: 50%;
-    width: 119%;
-    height: 58%;
-    right: 7%;
+    <img  class="shake-slow shaker" src="http://storage.56iq.net/group1/M00/4F/6B/CgoKQ1vAEUGAYsHJAAAvlOx9y7A618.png" style="
+ position: absolute;
+    bottom: 66%;
+    width: 75%;
+    height: 27%;
+    right: 4%;
 "/>
+    <img  class="className" src="img/999.png" style="
+width: 27%;
+    height: 20%;
+    position: absolute;
+    bottom: 45%;
+    right: 0%;"/>
+    <img  class="shake-slow shaker"  src="http://storage.56iq.net/group1/M00/4F/6E/CgoKQ1vANHCAUVP5AAAI8uTwUew394.png" style="
+position: absolute;
+    bottom: 21%;
+    width: 23%;
+    right: 5%;"/>
+    <img  class="shake-fast shaker"  src="http://storage.56iq.net/group1/M00/4F/6E/CgoKQ1vANLSAWfYOAAAI1mHU61U418.png" style="
+position: absolute;
+    bottom: 20%;
+    /* margin-left: -7%; */
+    left: 1%;
+    width: 23%;"/>
 
     <div   onclick="longPress()"  style="  width: 20%;
           height: 10%;
@@ -142,6 +185,7 @@
 </body>
 <script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
 <script>
+    $("body").css( "height" , $(window).height +"px");
 
     $(document.body).css({
         "overflow-x":"hidden",
