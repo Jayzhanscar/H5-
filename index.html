@@ -38,7 +38,7 @@
 <body style="background-color: #f2f2f2;overflow: hidden" onmousewheel="return false;">
 <div id="bonfire-pageloader" >
     <div class="bonfire-pageloader-icon" style="margin-left: 40%;margin-top: 78%">
-        <div>画面加载中...</div>
+        <div>加载中..</div>
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 			 width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
 		<path id="loading-12-icon" d="M291,82.219c0,16.568-13.432,30-30,30s-30-13.432-30-30s13.432-30,30-30S291,65.65,291,82.219z
@@ -113,7 +113,7 @@ position: absolute;
     left: 1%;
     width: 23%;"/>
 
-    <div   onclick="longPress()"  style="  width: 20%;
+    <div  id="begin"    style="  width: 20%;
           height: 10%;
 
           position: absolute;
@@ -230,6 +230,7 @@ position: absolute;
 </body>
 <script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
 <script>
+    var timeOutEvent=0;
 
     function audioAutoPlay(id){
 
@@ -266,6 +267,9 @@ position: absolute;
         };
         reader.readAsDataURL(file);
     }
+
+
+
 
     function longPress(){
         timeOutEvent = 0;
@@ -326,7 +330,7 @@ position: absolute;
 
         audioAutoPlay('myaudio');
 
-        $('#myaudio')[0].play();
+            $('#myaudio')[0].play();
                 $('#dong')[0].pause()
 
 
@@ -348,6 +352,29 @@ position: absolute;
         document.addEventListener("touchmove",mo,false);//禁止页面滑动
     }
     stop()
+
+
+
+    $("#begin").on({
+        touchstart: function(e){
+            longPress()
+
+//            timeOutEvent = setTimeout("longPress()",500);
+//            e.preventDefault();
+        },
+        touchmove: function(){
+            console.log('我松开了')
+            clearTimeout(timeOutEvent);
+            timeOutEvent = 0;
+        },
+        touchend: function(){
+            clearTimeout(timeOutEvent);
+            if(timeOutEvent!=0){
+                alert("你这是点击，不是长按");
+            }
+            return false;
+        }
+    })
 
 </script>
 </html>

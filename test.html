@@ -1,41 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8"/>
+    <title></title>
+    <script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
 </head>
-<style>
-
-    .className{
-        -webkit-animation: twinkling 1s infinite ease-in-out
-    }
-    .animated{
-        -webkit-animation-duration: 1s;
-        animation-duration: 1s;
-        -webkit-animation-fill-mode: both;
-        animation-fill-mode: both
-    }
-    @-webkit-keyframes twinkling{
-        0%{
-            opacity: 0.5;
-        }
-        100%{
-            opacity: 1;
-        }
-    }
-    @keyframes twinkling{
-        0%{
-            opacity: 0.5;
-        }
-        100%{
-            opacity: 1;
-        }
-    }
-
-</style>
 <body>
+<div style="width:100%;">
+    <div id="touchArea" style="width:90%; height:200px; background-color:#CCC;font-size:100px">长按我</div>
+</div>
+<script>
+    var timeOutEvent=0;
+    $(function(){
+        $("#touchArea").on({
+            touchstart: function(e){
+                console.log('我已经触发了长按');
+                timeOutEvent = setTimeout("longPress()",500);
+                e.preventDefault();
+            },
+            touchmove: function(){
+                clearTimeout(timeOutEvent);
+                timeOutEvent = 0;
+            },
+            touchend: function(){
+                clearTimeout(timeOutEvent);
+                if(timeOutEvent!=0){
+                    alert("你这是点击，不是长按");
+                }
+                return false;
+            }
+        })
+    });
 
-<div  class= "className" style="background-color: #1FB6DB;width: 50%; height: 50%"></div>
 
+    function longPress(){
+        timeOutEvent = 0;
+        alert("长按事件触发发");
+    }
+
+</script>
 </body>
 </html>
