@@ -370,7 +370,7 @@ position: absolute;
 //            timeOutEvent = setTimeout("longPress()",500);
 //            e.preventDefault();
         },
-        touchmove: function(){
+        touchend: function(){
             window.clearInterval(t);
             window.clearInterval(t2);
             window.clearInterval(t3);
@@ -399,13 +399,8 @@ position: absolute;
             }
 
             return false
-        },
-        touchend: function(){
-
-
-
-            return false;
         }
+
     })
 
 
