@@ -134,7 +134,7 @@ position: absolute;
 
 </div>
 <div id="p3" style="display: none">
-    <img   class="iimg"  id="load1" src="img/画面1缩小版3.gif" width="100%">
+    <img   class="iimg"  id="load1" style="display: none;" src="img/画面1缩小版3.gif" width="100%">
 </div>
 <div id="p4" style="display: none">
     <img src="http://storage.56iq.net/group1/M00/4F/33/CgoKQ1u9az6ACiOzAMA_CjAppiU496.gif" width="100%">
@@ -161,6 +161,13 @@ position: absolute;
     bottom: 70%;
     width: 16%;
     right: 5%;" class="ballon"/>
+
+    <img onclick="last()" src="img/上推.png" style="
+    position: absolute;
+    bottom: 7%;
+    width: 16%;
+    right: 42%;
+    " class="ballon"/>
 
 
 </div>
@@ -248,7 +255,20 @@ position: absolute;
     var t2 =0;
     var t3 = 0;
     var t4 =0;
-    var tty = 0
+    var tty = 0;
+    var zong;
+    // 总定时器
+    var all = 0;
+    var allt = 0;
+
+
+
+
+    function ally()
+    {
+        all=all+1;
+        allt= window.setTimeout("timedCount()",1000)
+    }
 
     function audioAutoPlay(id){
 
@@ -290,23 +310,29 @@ position: absolute;
             $('#p1').css('display', 'none');
             $('#p2').css('display', 'none');
             $('#p3').css('display', 'block');
+            $('#load1').css('display', 'block');
              t2 = window.setTimeout(function () {
                 $('#dong')[0].play();
                 $('#power')[0].pause();
+                 $('#load1').css('display', 'none');
                 $('#p3').css('display', 'none');
                 $('#p4').css('display', 'block');
                  t3 = window.setTimeout(function () {
                     $('#p3').css('display', 'none');
                     $('#p4').css('display', 'none');
                     $('#p7').css('display', 'block');
-                     t4 = window.setTimeout(function () {
-                        $('#myaudio')[0].play();
-                        $('#dong')[0].pause();
-                        $('#p3').css('display', 'none');
-                        $('#p4').css('display', 'none');
-                        $('#p7').css('display', 'none');
-                        $('#p8').css('display', 'block');
-                    }, 2000);//使用字符串执行方法
+                    $('#begin').css('display', 'none');
+
+                     $('#myaudio')[0].play();
+                     $('#dong')[0].pause();
+//                     t4 = window.setTimeout(function () {
+//                        $('#myaudio')[0].play();
+//                        $('#dong')[0].pause();
+//                        $('#p3').css('display', 'none');
+//                        $('#p4').css('display', 'none');
+//                        $('#p7').css('display', 'none');
+//                        $('#p8').css('display', 'block');
+//                    }, 2000);//使用字符串执行方法
 
                 }, 18000);
 
@@ -335,7 +361,11 @@ position: absolute;
                 // or
                 // document.addEventListener('touchmove', function(e){e.preventDefault()}, false);
 
-        audioAutoPlay('myaudio');
+            var rr =window.setTimeout(function () {
+                    console.log('gregwfegwefgew')
+                    $('#myaudio')[0].currentTime = 0
+
+            }, 25000);
 
             $('#myaudio')[0].play();
                 $('#dong')[0].pause();
@@ -376,9 +406,8 @@ position: absolute;
             window.clearInterval(t3);
             window.clearInterval(t4);
             window.clearInterval(tty);
-
-
-
+            $('#myaudio')[0].play();
+            $('#dong')[0].pause();
             if(c  <=  20){
                 c = 0;
                 $('#p2').css('display', 'block');
@@ -390,6 +419,7 @@ position: absolute;
             }
             if(c > 20){
                 c = 0;
+                $('#begin').css('display', 'none');
                 $('#p7').css('display', 'block');
                 $('#p3').css('display', 'none');
                 $('#p4').css('display', 'none');
@@ -401,16 +431,27 @@ position: absolute;
             return false
         }
 
-    })
+    });
 
 
     function timedCount()
     {
-
         c=c+1;
         t= window.setTimeout("timedCount()",1000)
         console.log(c)
     }
+
+
+    function last() {
+        $('#myaudio')[0].play();
+        $('#dong')[0].pause();
+        $('#p3').css('display', 'none');
+        $('#p4').css('display', 'none');
+        $('#p7').css('display', 'none');
+        $('#p8').css('display', 'block');
+
+    }
+
 
 
 </script>
