@@ -358,23 +358,24 @@ position: absolute;
                 alert('你长按了');
             }, 4000);
 
-            timedCount()
+
 
 //            timeOutEvent = setTimeout("longPress()",500);
 //            e.preventDefault();
         },
         touchmove: function(){
-            alert('okoko')
-            clearTimeout(timeOutEvent);
-            timeOutEvent = 0;
-        },
-        touchend: function(){
             timeOutEvent = setTimeout(function() {
                 timeOutEvent = 0;
                 alert('你长按了');
             }, 4000);
+            clearTimeout(timeOutEvent);
+            timeOutEvent = 0;
+            return false
+        },
+        touchend: function(){
 
-            timedCount()
+
+
             return false;
         }
     })
