@@ -358,9 +358,12 @@ position: absolute;
             $('#power')[0].play();
             $('#myaudio')[0].pause();
             timeOutEvent = setTimeout(function() {
-                timeOutEvent = 0;
-                alert('你长按了');
+                 longPress()
             }, 6000);
+            timeOutEvent = setTimeout(function() {
+                alert('你成功个了')
+            }, 12000);
+
 
 
 
