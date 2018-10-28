@@ -68,6 +68,21 @@
     </div>
 </div>
 
+
+<div  id="begin"    style="
+    z-index: 100;
+    background-size: 100%;
+    width: 24%;
+    height: 13%;
+    position: absolute;
+    left: 39%;
+    bottom: 1%;
+    display: block;
+    /* background-color: wheat; */
+    font-size: 16px;
+    border-radius: 50%;
+    background-image: url(img/WechatIMG3945.png);
+"></div>
 <div id='p1' style="text-align: center;background-color: #F2F2F2;height: 100%;display: none">
 
 
@@ -116,19 +131,7 @@ position: absolute;
     left: 1%;
     width: 23%;"/>
 
-    <div  id="begin"    style="
-    background-size: 100%;
-    width: 24%;
-    height: 13%;
-    position: absolute;
-    left: 39%;
-    bottom: 1%;
-    display: block;
-    /* background-color: wheat; */
-    font-size: 16px;
-    border-radius: 50%;
-    background-image: url(img/WechatIMG3945.png);
-"></div>
+
 </div>
 <div id="p3" style="display: none">
     <img   class="iimg"  id="load1" src="img/画面1缩小版3.gif" width="100%">
@@ -241,8 +244,11 @@ position: absolute;
 <script>
     var timeOutEvent=0;
     var t;
-    var c = 0
-
+    var c = 0;
+    var t2 =0;
+    var t3 = 0;
+    var t4 =0;
+    var tty = 0
 
     function audioAutoPlay(id){
 
@@ -284,22 +290,21 @@ position: absolute;
             $('#p1').css('display', 'none');
             $('#p2').css('display', 'none');
             $('#p3').css('display', 'block');
-            var t2 = window.setTimeout(function () {
+             t2 = window.setTimeout(function () {
                 $('#dong')[0].play();
                 $('#power')[0].pause();
                 $('#p3').css('display', 'none');
                 $('#p4').css('display', 'block');
-                var ttttt = window.setTimeout(function () {
+                 t3 = window.setTimeout(function () {
                     $('#p3').css('display', 'none');
                     $('#p4').css('display', 'none');
                     $('#p7').css('display', 'block');
-                    var t4 = window.setTimeout(function () {
+                     t4 = window.setTimeout(function () {
                         $('#myaudio')[0].play();
                         $('#dong')[0].pause();
                         $('#p3').css('display', 'none');
                         $('#p4').css('display', 'none');
                         $('#p7').css('display', 'none');
-                        $('#p5').css('display', 'none');
                         $('#p8').css('display', 'block');
                     }, 2000);//使用字符串执行方法
 
@@ -357,21 +362,41 @@ position: absolute;
         touchstart: function(e){
             $('#power')[0].play();
             $('#myaudio')[0].pause();
-            timeOutEvent = setTimeout(function() {
-                 longPress()
+            tty = window.setTimeout(function() {
+                 longPress();
+                timedCount();
             }, 6000);
-            timeOutEvent = setTimeout(function() {
-                alert('你成功个了')
-            }, 12000);
-
-
-
 
 //            timeOutEvent = setTimeout("longPress()",500);
 //            e.preventDefault();
         },
         touchmove: function(){
-            alert('你已经松开了');
+            window.clearInterval(t);
+            window.clearInterval(t2);
+            window.clearInterval(t3);
+            window.clearInterval(t4);
+            window.clearInterval(tty);
+
+
+
+            if(c  <=  20){
+                c = 0;
+                $('#p2').css('display', 'block');
+                $('#p3').css('display', 'none');
+                $('#p4').css('display', 'none');
+                $('#p7').css('display', 'none');
+                $('#p5').css('display', 'none');
+                $('#p8').css('display', 'none');
+            }
+            else{
+                c = 0;
+                $('#p7').css('display', 'block');
+                $('#p3').css('display', 'none');
+                $('#p4').css('display', 'none');
+                $('#p2').css('display', 'none');
+                $('#p5').css('display', 'none');
+                $('#p8').css('display', 'none');
+            }
 
             return false
         },
@@ -388,7 +413,7 @@ position: absolute;
     {
 
         c=c+1;
-        t=setTimeout("timedCount()",1000)
+        t= window.setTimeout("timedCount()",1000)
         console.log(c)
     }
 
