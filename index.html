@@ -231,6 +231,9 @@ position: absolute;
 <script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
 <script>
     var timeOutEvent=0;
+    var t;
+    var c = 0
+
 
     function audioAutoPlay(id){
 
@@ -267,10 +270,6 @@ position: absolute;
         };
         reader.readAsDataURL(file);
     }
-
-
-
-
     function longPress(){
         timeOutEvent = 0;
         $('#power')[0].play();
@@ -286,13 +285,13 @@ position: absolute;
                 $('#p3').css('display', 'none');
                 $('#p4').css('display', 'block');
                 var ttttt = window.setTimeout(function () {
+                    $('#p3').css('display', 'none');
                     $('#p4').css('display', 'none');
                     $('#p7').css('display', 'block');
-
-
                     var t4 = window.setTimeout(function () {
                         $('#myaudio')[0].play();
                         $('#dong')[0].pause();
+                        $('#p3').css('display', 'none');
                         $('#p4').css('display', 'none');
                         $('#p7').css('display', 'none');
                         $('#p5').css('display', 'none');
@@ -309,7 +308,7 @@ position: absolute;
 
     var start = window.setTimeout(function () {
 
-                $('#p2').css('display', 'block');
+                $('#p3').css('display', 'block');
                 $('#bonfire-pageloader').css('display', 'none');
 
                 function change(num) {
@@ -331,12 +330,8 @@ position: absolute;
         audioAutoPlay('myaudio');
 
             $('#myaudio')[0].play();
-                $('#dong')[0].pause()
-
-
-
-
-    }, 5000)
+                $('#dong')[0].pause();
+    }, 5000);
 
    function succeed() {
         $('#photo').css('display', 'none');
@@ -351,19 +346,21 @@ position: absolute;
         document.body.style.overflow='hidden';
         document.addEventListener("touchmove",mo,false);//禁止页面滑动
     }
-    stop()
+    stop();
 
 
 
     $("#begin").on({
         touchstart: function(e){
+
             longPress()
+            timedCount()
 
 //            timeOutEvent = setTimeout("longPress()",500);
 //            e.preventDefault();
         },
         touchmove: function(){
-            console.log('我松开了')
+            alert('okoko')
             clearTimeout(timeOutEvent);
             timeOutEvent = 0;
         },
@@ -375,6 +372,16 @@ position: absolute;
             return false;
         }
     })
+
+
+    function timedCount()
+    {
+
+        c=c+1;
+        t=setTimeout("timedCount()",1000)
+        console.log(c)
+    }
+
 
 </script>
 </html>
