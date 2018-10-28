@@ -272,10 +272,6 @@ position: absolute;
     }
     function longPress(){
         timeOutEvent = 0;
-        $('#power')[0].play();
-        $('#myaudio')[0].pause();
-
-        var RR = window.setTimeout(function () {
             $('#p1').css('display', 'none');
             $('#p2').css('display', 'none');
             $('#p3').css('display', 'block');
@@ -301,8 +297,6 @@ position: absolute;
                 }, 18000);
 
             }, 2000)
-
-        }, 6000);//使用字符串执行方法
     }
 
 
@@ -352,6 +346,13 @@ position: absolute;
 
     $("#begin").on({
         touchstart: function(e){
+            $('#power')[0].play();
+            $('#myaudio')[0].pause();
+
+            timeOutEvent = setTimeout(function() {
+                timeOutEvent = 0;
+                alert('你长按了');
+            }, 4000);
 
             longPress()
             timedCount()
