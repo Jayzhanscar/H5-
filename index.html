@@ -357,6 +357,10 @@ position: absolute;
         touchstart: function(e){
             $('#power')[0].play();
             $('#myaudio')[0].pause();
+            timeOutEvent = setTimeout(function() {
+                timeOutEvent = 0;
+                alert('你长按了');
+            }, 6000);
 
 
 
@@ -364,12 +368,7 @@ position: absolute;
 //            e.preventDefault();
         },
         touchmove: function(){
-            timeOutEvent = setTimeout(function() {
-                timeOutEvent = 0;
-                alert('你长按了');
-            }, 4000);
-            clearTimeout(timeOutEvent);
-            timeOutEvent = 0;
+
             return false
         },
         touchend: function(){
