@@ -297,7 +297,6 @@ position: absolute;
         reader.readAsDataURL(file);
     }
     function longPress(){
-        timeOutEvent = 0;
             $('#p1').css('display', 'none');
             $('#p2').css('display', 'none');
             $('#p3').css('display', 'block');
@@ -357,7 +356,7 @@ position: absolute;
                     $('#myaudio')[0].currentTime = 0
 
             }, 25000);
-        audioAutoPlay('#myaudio');
+
 
             $('#myaudio')[0].play();
                 $('#dong')[0].pause();
@@ -391,12 +390,12 @@ position: absolute;
 //            e.preventDefault();
         },
         touchend: function(){
+            console.log('okokokokok')
             window.clearInterval(t);
             window.clearInterval(t2);
             window.clearInterval(t3);
             window.clearInterval(t4);
             window.clearInterval(tty);
-            audioAutoPlay('#myaudio');
             $('#myaudio')[0].play();
             $('#dong')[0].pause();
             if(c  <=  20){
