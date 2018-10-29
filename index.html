@@ -439,6 +439,10 @@ position: absolute;
 
     }
 
+    window.ontouchstart = function(e) {
+        if (e.target.tagName === 'img')
+            e.preventDefault();
+    };
 
 
 </script>
