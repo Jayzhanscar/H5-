@@ -35,6 +35,58 @@
             opacity: 1;
         }
     }
+    .gogo{
+        opacity: 0.7;
+        height: 17%;
+        width: 25%;
+        /* box-shadow: 0 0 50px 30px #ffffff inset; */
+        bottom: 48%;
+        position: absolute;
+        margin-left: 38%;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50px;
+        border-top-left-radius: 30%;
+        border-top-right-radius: 41%;
+    }
+    .gogogo {
+        opacity: 0.7;
+        height: 14%;
+        width: 20%;
+        /* box-shadow: 0 0 50px 30px #ffffff inset; */
+        bottom: 60%;
+        position: absolute;
+        margin-left: 39%;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50px;
+        border-top-left-radius: 30%;
+        border-top-right-radius: 41%;
+    }
+    .ttt {
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        box-shadow: 0 0 14px 7px rgb(226,166, 128) inset;
+        margin-left: 36%;
+        width: 29%;
+        height: 18%;
+        position: absolute;
+        bottom: 48%;
+        border-top-left-radius: 31%;
+        border-top-right-radius: 31%;
+        z-index: 56;
+    }
+    .tttt {
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        box-shadow: 0 0 14px 7px rgb(226,166, 128) inset;
+        margin-left: 38%;
+        width: 20%;
+        height: 14%;
+        position: absolute;
+        bottom: 60%;
+        border-top-left-radius: 31%;
+        border-top-right-radius: 31%;
+        z-index: 56;
+    }
 </style>
 
 </head>
@@ -173,7 +225,7 @@ position: absolute;
 </div>
 <div id="p8" style="width:100%;height:100%;display: none;position: absolute;  background-image: url(http://storage.56iq.net/group1/M00/4F/78/CgoKQ1vAxzKAJYWFAAMKYl3Uy_E327.png); background-size:100% 100%;">
 
-     <img  class="className" src="http://storage.56iq.net/group1/M00/4F/79/CgoKQ1vA0a-AS1gqAAAR2UwonyM026.png" style="
+     <img  id="ii" class="className" src="http://storage.56iq.net/group1/M00/4F/79/CgoKQ1vA0a-AS1gqAAAR2UwonyM026.png" style="
 position: absolute;
     bottom: 73%;
     width: 79%;
@@ -206,6 +258,7 @@ position: absolute;
     bottom: 0;
 
 }">
+
     <img  id="gg" onclick="succeed()"   class="ballon" src="http://storage.56iq.net/group1/M00/4F/79/CgoKQ1vAztCAXeikAAAN75NgP90723.png" style="
     position: absolute;
     bottom: 26%;
@@ -213,32 +266,25 @@ position: absolute;
     height: 10%;"/>
    <!-- <button id="gg" onclick="succeed()" style="border:0; background-color: #1FB6DB;display: none;height: 5%;width: 20%;position: absolute;bottom: 30%;border-radius: 6%"> 生成照片</button>
 -->
-    <div style="
-    border-bottom-left-radius: 50%;
-    border-bottom-right-radius: 50%;
-    box-shadow: 0 0 14px 7px rgb(226,166, 128) inset;
-    margin-left: 36%;
-    width: 29%;
-    height: 18%;
-    position: absolute;
-    bottom: 48%;
-    border-top-left-radius: 31%;
-    border-top-right-radius: 31%;
-    z-index: 56;
-
-        "  ></div>
-    <img  id="image"   style="      opacity: 0.7;
-    height: 17%;
-    width: 25%;
-    /* box-shadow: 0 0 50px 30px #ffffff inset; */
-    bottom: 48%;
-    position: absolute;
-    margin-left: 38%;
-    border-bottom-left-radius: 50%;
-    border-bottom-right-radius: 50px;
-    border-top-left-radius: 30%;
-    border-top-right-radius: 41%;
-"/>
+    <div id="kkk" class="ttt" ></div>
+    <img  id="image" class="gogo"/>
+    <button onclick="back()" id="ccpz" style="position: absolute;
+    height: 6%;
+    width: 35%;
+    bottom: 4%;
+    margin-left: 14%;
+    color: wheat;
+    display: none;
+    background-color: aqua;
+    opacity: 0.1;"></button>
+    <button  id="ccpzz" style="display:none; position: absolute;
+    height: 6%;
+    width: 35%;
+    bottom: 4%;
+    margin-left: 53%;
+    color: wheat;
+    background-color: #9E9E9E;
+    opacity: 0.1;"></button>
 
 </div>
 
@@ -291,8 +337,6 @@ position: absolute;
             document.getElementById("image").src = e.target.result;
             document.getElementById("shengcheng").src = e.target.result;
             $('#gg').css('display', 'block');
-
-
         };
         reader.readAsDataURL(file);
     }
@@ -365,7 +409,8 @@ position: absolute;
    function succeed() {
         $('#photo').css('display', 'none');
         $('#gg').css('display', 'none');
-       $('#code').css('display', 'block')
+
+       dd()
 
 
    }
@@ -390,7 +435,7 @@ position: absolute;
 //            e.preventDefault();
         },
         touchend: function(){
-            console.log('okokokokok')
+
             window.clearInterval(t);
             window.clearInterval(t2);
             window.clearInterval(t3);
@@ -425,7 +470,7 @@ position: absolute;
     function timedCount()
     {
         c=c+1;
-        t= window.setTimeout("timedCount()",1000)
+        t= window.setTimeout("timedCount()",1000);
         console.log(c)
     }
 
@@ -436,18 +481,11 @@ position: absolute;
         $('#p4').css('display', 'none');
         $('#p7').css('display', 'none');
         $('#p8').css('display', 'block');
-
     }
-
     window.ontouchstart = function(e) {
         if (e.target.tagName === 'img')
             e.preventDefault();
     };
-
-
-
-
-
     $("#upup").on({
         touchmove: function(e){
             $('#myaudio')[0].play();
@@ -457,9 +495,33 @@ position: absolute;
             $('#p7').css('display', 'none');
             $('#p8').css('display', 'block');
 
-
         }
-
     });
+    function dd() {
+        $("#p8").css("background-image","url(img/WechatIMG1306.jpeg)");
+        $('#image').attr('class', 'gogogo');
+        $('#kkk').attr('class', 'tttt');
+        $('#photo').css('display', 'none');
+        $('#gg').css('display', 'none');
+        $('#ii').css('display', 'none');
+        $('#ccpz').css('display', 'block')
+        $('#ccpzz').css('display', 'block')
+    }
+    function back() {
+        $("#p8").css("background-image","url(http://storage.56iq.net/group1/M00/4F/78/CgoKQ1vAxzKAJYWFAAMKYl3Uy_E327.png)");
+        $('#image').attr('class', 'gogo');
+        $('#kkk').attr('class', 'ttt');
+        $('#photo').css('display', 'block');
+        $('#gg').css('display', 'block');
+        $('#ii').css('display', 'block');
+        $('#ccpz').css('display', 'none');
+        $('#ccpzz').css('display', 'none');
+    }
+    function dump() {
+            window.location.href="https://scarever.github.io/"; //你需要跳转的地址
+
+    }
+
+
 </script>
 </html>
