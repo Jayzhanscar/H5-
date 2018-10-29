@@ -162,7 +162,7 @@ position: absolute;
     width: 16%;
     right: 5%;" class="ballon"/>
 
-    <img onclick="last()" src="img/上推.png" style="
+    <img id="upup" src="img/上推.png" style="
     position: absolute;
     bottom: 7%;
     width: 16%;
@@ -445,5 +445,21 @@ position: absolute;
     };
 
 
+
+
+
+    $("#upup").on({
+        touchmove: function(e){
+            $('#myaudio')[0].play();
+            $('#dong')[0].pause();
+            $('#p3').css('display', 'none');
+            $('#p4').css('display', 'none');
+            $('#p7').css('display', 'none');
+            $('#p8').css('display', 'block');
+
+
+        }
+
+    });
 </script>
 </html>
