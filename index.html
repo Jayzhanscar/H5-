@@ -76,7 +76,7 @@
     height: 15%;
     position: absolute;
     left: 34%;
-    bottom: 3%;
+    bottom: 6%;
     display: block;
     /* background-color: wheat; */
     font-size: 16px;
@@ -357,6 +357,7 @@ position: absolute;
                     $('#myaudio')[0].currentTime = 0
 
             }, 25000);
+        audioAutoPlay('#myaudio');
 
             $('#myaudio')[0].play();
                 $('#dong')[0].pause();
@@ -377,17 +378,15 @@ position: absolute;
     }
     stop();
 
-
-
     $("#begin").on({
         touchstart: function(e){
+
             $('#power')[0].play();
             $('#myaudio')[0].pause();
             tty = window.setTimeout(function() {
                  longPress();
                 timedCount();
             }, 6000);
-
 //            timeOutEvent = setTimeout("longPress()",500);
 //            e.preventDefault();
         },
@@ -397,6 +396,7 @@ position: absolute;
             window.clearInterval(t3);
             window.clearInterval(t4);
             window.clearInterval(tty);
+            audioAutoPlay('#myaudio');
             $('#myaudio')[0].play();
             $('#dong')[0].pause();
             if(c  <=  20){
