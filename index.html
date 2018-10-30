@@ -340,6 +340,8 @@ position: absolute;
             $('#p2').css('display', 'none');
             $('#p3').css('display', 'block');
             $('#load1').css('display', 'block');
+         audioAutoPlay('dong');
+         $('#dong')[0].play();
              t2 = window.setTimeout(function () {
                  audioAutoPlay('dong');
                 $('#dong')[0].play();
@@ -366,6 +368,8 @@ position: absolute;
             }, 2000)
     }
     var start = window.setTimeout(function () {
+        audioAutoPlay('myaudio');
+        $('#dong')[0].pause();
 
                 $('#p3').css('display', 'block');
                 $('#bonfire-pageloader').css('display', 'none');
@@ -386,12 +390,10 @@ position: absolute;
                 // document.addEventListener('touchmove', function(e){e.preventDefault()}, false);
 
             setInterval(function () {
-
                     $('#myaudio')[0].currentTime = 0
 
             }, 25000);
-            audioAutoPlay('myaudio');
-                $('#dong')[0].pause();
+
     }, 5000);
 
    function succeed() {
@@ -462,14 +464,6 @@ position: absolute;
         console.log(c)
     }
 
-    function last() {
-        $('#myaudio')[0].play();
-        $('#dong')[0].pause();
-        $('#p3').css('display', 'none');
-        $('#p4').css('display', 'none');
-        $('#p7').css('display', 'none');
-        $('#p8').css('display', 'block');
-    }
     window.ontouchstart = function(e) {
         if (e.target.tagName === 'img')
             e.preventDefault();
@@ -508,6 +502,7 @@ position: absolute;
     function dump() {
             window.location.href="https://shop.m.jd.com/?shopId=60947"; //你需要跳转的地址
     }
+    audioAutoPlay('myaudio');
 
 
 </script>
