@@ -341,6 +341,7 @@ position: absolute;
             $('#p3').css('display', 'block');
             $('#load1').css('display', 'block');
              t2 = window.setTimeout(function () {
+                 audioAutoPlay('dong');
                 $('#dong')[0].play();
                 $('#power')[0].pause();
                  $('#load1').css('display', 'none');
@@ -390,7 +391,6 @@ position: absolute;
 
             }, 25000);
             audioAutoPlay('myaudio');
-            $('#myaudio')[0].play();
                 $('#dong')[0].pause();
     }, 5000);
 
