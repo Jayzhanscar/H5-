@@ -119,7 +119,8 @@
 
     </div>
 </div>
-<div  id="begin"    style="
+<div  id="
+"    style="
    z-index: 100;
     background-size: 123%;
     width: 38%;
@@ -288,7 +289,7 @@ position: absolute;
 
 <audio src="http://img02.tuke88.com/preview_music/00/00/05/seemp3-5ba0b0f6144741110.mp3" id="myaudio"   controls autoplay loop="true" hidden="true"></audio>
 <audio src="http://img.tukuppt.com/origin_music/00/07/60/pd-5b7a1e7c1c10c847.mp3" id="power"></audio>
-<audio src="http://img02.tuke88.com/preview_music/00/11/32/preview-5b835f362968d3175.mp3" id="dong"> </audio>
+<audio src="/img/FOANS%20-%20H5.mp3" id="dong"> </audio>
 </body>
 <script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
 <script>
@@ -368,8 +369,8 @@ position: absolute;
             }, 2000)
     }
     var start = window.setTimeout(function () {
-        audioAutoPlay('myaudio');
-        $('#dong')[0].pause();
+            audioAutoPlay('myaudio');
+            $('#dong')[0].pause();
 
                 $('#p3').css('display', 'block');
                 $('#bonfire-pageloader').css('display', 'none');
@@ -394,15 +395,12 @@ position: absolute;
 
             }, 25000);
 
-    }, 5000);
+    }, 2000);
 
    function succeed() {
         $('#photo').css('display', 'none');
         $('#gg').css('display', 'none');
-
        dd()
-
-
    }
 
     var mo=function(e){e.preventDefault();};
@@ -414,9 +412,9 @@ position: absolute;
 
     $("#begin").on({
         touchstart: function(e){
-
-            $('#power')[0].play();
+            $('#begin').css("background-image","img/发光.png");
             $('#myaudio')[0].pause();
+            $('#power')[0].play();
             tty = window.setTimeout(function() {
                  longPress();
                 timedCount();
@@ -425,7 +423,6 @@ position: absolute;
 //            e.preventDefault();
         },
         touchend: function(){
-
             window.clearInterval(t);
             window.clearInterval(t2);
             window.clearInterval(t3);
@@ -476,7 +473,6 @@ position: absolute;
             $('#p4').css('display', 'none');
             $('#p7').css('display', 'none');
             $('#p8').css('display', 'block');
-
         }
     });
     function dd() {
@@ -502,8 +498,6 @@ position: absolute;
     function dump() {
             window.location.href="https://shop.m.jd.com/?shopId=60947"; //你需要跳转的地址
     }
-    audioAutoPlay('myaudio');
-
 
 </script>
 </html>
