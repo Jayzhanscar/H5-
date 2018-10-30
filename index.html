@@ -281,11 +281,7 @@ position: absolute;
     color: wheat;
     background-color: #9E9E9E;
     opacity: 0.1;"></button>
-
 </div>
-
-
-
 <audio src="http://img02.tuke88.com/preview_music/00/00/05/seemp3-5ba0b0f6144741110.mp3" id="myaudio"   controls autoplay loop="true" hidden="true"></audio>
 <audio src="http://img.tukuppt.com/origin_music/00/07/60/pd-5b7a1e7c1c10c847.mp3" id="power"  controls autoplay loop="true" hidden="true"></audio>
 <audio src="/img/FOANS%20-%20H5.mp3" id="dong"  controls autoplay loop="true" hidden="true"> </audio>
@@ -374,14 +370,14 @@ position: absolute;
                 $('#p3').css('display', 'block');
                 $('#bonfire-pageloader').css('display', 'none');
 
-                function change(num) {
-                    console.log(num);
-                    if (num == 1) {
-                        $('#p1').css('display', 'none');
-                        $('#id').css('display', 'block');
-                        $('#p2').css('display', 'block');
-                    }
-                }
+//                function change(num) {
+//                    console.log(num);
+//                    if (num == 1) {
+//                        $('#p1').css('display', 'none');
+//                        $('#id').css('display', 'block');
+//                        $('#p2').css('display', 'block');
+//                    }
+//                }
 //        //阻止浏览器下拉事件
                 $('body').on('touchmove', function (event) {
                     event.preventDefault();
@@ -415,6 +411,7 @@ position: absolute;
             $('#myaudio')[0].pause();
             $('#power')[0].play();
             tty = window.setTimeout(function() {
+                $('#myaudio')[0].pause();
                  longPress();
                 timedCount();
             }, 6000);
@@ -422,7 +419,6 @@ position: absolute;
 //            e.preventDefault();
         },
         touchend: function(){
-
             window.clearInterval(t);
             window.clearInterval(t2);
             window.clearInterval(t3);
@@ -431,6 +427,8 @@ position: absolute;
             $('#myaudio')[0].play();
             $('#dong')[0].pause();
             if(c  <=  20){
+                $('#dong')[0].pause();
+
                 $("#begin").css( "background-image" ,"url(img/WechatIMG948.png)");
                 c = 0;
                 $('#p2').css('display', 'block');
@@ -442,6 +440,7 @@ position: absolute;
             }
             if(c > 20){
                 c = 0;
+                $('#dong')[0].pause();
                 $('#begin').css('display', 'none');
                 $('#p7').css('display', 'block');
                 $('#p3').css('display', 'none');
@@ -477,7 +476,7 @@ position: absolute;
         }
     });
     function dd() {
-        $("#kkl").css('display', 'block')
+        $("#kkl").css('display', 'block');
         $('#image').attr('class', 'gogogo');
         $('#kkk').attr('class', 'tttt');
         $('#photo').css('display', 'none');
