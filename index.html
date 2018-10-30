@@ -119,8 +119,7 @@
 
     </div>
 </div>
-<div  id="
-"    style="
+<div  id="begin"    style="
    z-index: 100;
     background-size: 123%;
     width: 38%;
@@ -412,7 +411,7 @@ position: absolute;
 
     $("#begin").on({
         touchstart: function(e){
-
+            $( "#begin" ).css( "background-image" ,"url(img/发光.png)");
             $('#myaudio')[0].pause();
             $('#power')[0].play();
             tty = window.setTimeout(function() {
@@ -423,6 +422,7 @@ position: absolute;
 //            e.preventDefault();
         },
         touchend: function(){
+
             window.clearInterval(t);
             window.clearInterval(t2);
             window.clearInterval(t3);
@@ -431,6 +431,7 @@ position: absolute;
             $('#myaudio')[0].play();
             $('#dong')[0].pause();
             if(c  <=  20){
+                $("#begin").css( "background-image" ,"url(img/WechatIMG948.png)");
                 c = 0;
                 $('#p2').css('display', 'block');
                 $('#p3').css('display', 'none');
