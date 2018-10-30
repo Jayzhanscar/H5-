@@ -324,14 +324,12 @@ position: absolute;
         }, false);
         document.addEventListener("touchstart",play, false);
     }
-
     $("body").css( "height" , $(window).height +"px");
 
     $(document.body).css({
         "overflow-x":"hidden",
         "overflow-y":"hidden"
     });
-
     function onTake() {
         var file = document.getElementById("btn_camera").files[0];
         var reader = new FileReader();
@@ -358,9 +356,8 @@ position: absolute;
                     $('#p4').css('display', 'none');
                     $('#p7').css('display', 'block');
                     $('#begin').css('display', 'none');
-
-                     $('#myaudio')[0].play();
-                     $('#dong')[0].pause();
+                    $('#myaudio')[0].play();
+                    $('#dong')[0].pause();
 //                     t4 = window.setTimeout(function () {
 //                        $('#myaudio')[0].play();
 //                        $('#dong')[0].pause();
@@ -369,13 +366,9 @@ position: absolute;
 //                        $('#p7').css('display', 'none');
 //                        $('#p8').css('display', 'block');
 //                    }, 2000);//使用字符串执行方法
-
                 }, 18000);
-
             }, 2000)
     }
-
-
     var start = window.setTimeout(function () {
 
                 $('#p3').css('display', 'block');
@@ -389,7 +382,6 @@ position: absolute;
                         $('#p2').css('display', 'block');
                     }
                 }
-
 //        //阻止浏览器下拉事件
                 $('body').on('touchmove', function (event) {
                     event.preventDefault();
@@ -402,8 +394,6 @@ position: absolute;
                     $('#myaudio')[0].currentTime = 0
 
             }, 25000);
-
-
             $('#myaudio')[0].play();
                 $('#dong')[0].pause();
     }, 5000);
