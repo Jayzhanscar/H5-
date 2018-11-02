@@ -49,8 +49,8 @@
     bottom: 18px;
     left: 50%;
     margin-left: -10px;
-    border-top: 2px solid #5a584e;
-    border-left: 2px solid #5a584e;
+    border-right: 2px solid #5a584e;
+    border-bottom: 2px solid #5a584e;
     z-index: 9999;
     -webkit-tap-highlight-color: rgba(255,255,255,0);
     animation: fadeInUp 1.5s .2s ease infinite;

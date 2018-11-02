@@ -373,25 +373,27 @@ position: absolute;
         </div>
     </div>
 </div>
-<audio src="http://img02.tuke88.com/preview_music/00/00/05/seemp3-5ba0b0f6144741110.mp3" id="myaudio"   controls  loop="true" hidden="true"></audio>
+<audio class="audio" src="http://img02.tuke88.com/preview_music/00/00/05/seemp3-5ba0b0f6144741110.mp3" id="myaudio"   controls  loop="true" hidden="true"></audio>
 <audio src="http://img.tukuppt.com/origin_music/00/07/60/pd-5b7a1e7c1c10c847.mp3" id="power"  controls   hidden="true"></audio>
 <audio src="https://pic.ibaotu.com/mp3Watermark_v3/00/81/14/5a16de602143c16a87ee7dc91ae429ca.mp3" id="dong"  controls   hidden="true"> </audio>
 </body>
 <script src="http://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
 <script type="text/javascript" src="H5FullscreenPage.js"></script>
 <script>
-    var audio1 = document.getElementById('myaudio');
-    var timeOutEvent=0;
-    var t;
-    var c = 0;
-    var t2 =0;
-    var t3 = 0;
-    var t4 =0;
-    var tty = 0;
-    var zong;
-    // 总定时器
-    var all = 0;
-    var allt = 0;
+
+
+
+        var timeOutEvent = 0;
+        var t;
+        var c = 0;
+        var t2 = 0;
+        var t3 = 0;
+        var t4 = 0;
+        var tty = 0;
+        var zong;
+        // 总定时器
+        var all = 0;
+        var allt = 0;
 //    function audioAutoPlay(id){
 //
 //        var audio = document.getElementById(id),
@@ -408,27 +410,26 @@ position: absolute;
 //        }, false);
 //        document.addEventListener("touchstart",play, false);
 //    }
-    $("body").css( "height" , $(window).height +"px");
+        $("body").css("height", $(window).height + "px");
 
-    $(document.body).css({
-        "overflow-x":"hidden",
-        "overflow-y":"hidden"
-    });
+        $(document.body).css({
+            "overflow-x": "hidden",
+            "overflow-y": "hidden"
+        });
 
-    function longPress(){
+        function longPress() {
             $('#p1').css('display', 'none');
             $('#p2').css('display', 'none');
             $('#p3').css('display', 'block');
-          $('#dong')[0].play();
-          alert('okokoko')
-           var  t2 = window.setTimeout(function () {
-                 $('#power')[0].pause();
+            $('#dong')[0].play();
+
+            var t2 = window.setTimeout(function () {
+                $('#power')[0].pause();
                 $('#dong')[0].play();
-                 $('#load1').css('display', 'none');
                 $('#p3').css('display', 'none');
                 $('#p4').css('display', 'block');
-                 t3 = window.setTimeout(function () {
-                     $('#p2').css('display', 'none');
+                t3 = window.setTimeout(function () {
+                    $('#p2').css('display', 'none');
                     $('#p3').css('display', 'none');
                     $('#p4').css('display', 'none');
                     $('#p8').css('display', 'block');
@@ -438,122 +439,129 @@ position: absolute;
 
                 }, 18000);
             }, 2000)
-    }
-    var start = window.setTimeout(function () {
+        }
 
-
-        setInterval(function () {
-            $('#myaudio')[0].play();
-
-        }, 2000);
+        var start = window.setTimeout(function () {
 
 
 //            audioAutoPlay('myaudio');
-            $('#dong')[0].pause();
 
-                $('#p2').css('display', 'block');
-                $('#bonfire-pageloader').css('display', 'none');
+
+            $('#p2').css('display', 'block');
+            $('#bonfire-pageloader').css('display', 'none');
 //        //阻止浏览器下拉事件
-                $('body').on('touchmove', function (event) {
-                    event.preventDefault();
-                });
-                // or
-                // document.addEventListener('touchmove', function(e){e.preventDefault()}, false);
+            $('body').on('touchmove', function (event) {
+                event.preventDefault();
+            });
+            // or
+            // document.addEventListener('touchmove', function(e){e.preventDefault()}, false);
             setInterval(function () {
-                    $('#myaudio')[0].currentTime = 0
-
+                $('#myaudio')[0].currentTime = 0
             }, 25000);
 
-    }, 2000);
+        }, 2000);
 
-    var mo=function(e){e.preventDefault();};
-    function stop(){
-        document.body.style.overflow='hidden';
-        document.addEventListener("touchmove",mo,false);//禁止页面滑动
-    }
-    stop(); $('#myaudio')[0].pause();
+        var mo = function (e) {
+            e.preventDefault();
+        };
 
-    $("#begin").on({
-        touchstart: function(e){
-            dont()
-            $( "#begin" ).css( "background-image" ,"url(img/发光.png)");
-            $('#myaudio')[0].pause();
-            dongo()
-
-            tty = window.setTimeout(function() {
-                $('#power')[0].pause();
-
-                 longPress();
-                timedCount();
-            }, 6000);
-//            timeOutEvent = setTimeout("longPress()",500);
-//            e.preventDefault();
-        },
-        touchend: function(){
-            window.clearInterval(t);
-            window.clearInterval(t2);
-            window.clearInterval(t3);
-            window.clearInterval(t4);
-            window.clearInterval(tty);
-            $('#myaudio')[0].play();
-            $('#dong')[0].pause();
-            if(c  <=  20){
-                $('#dong')[0].pause();
-
-                $("#begin").css( "background-image" ,"url(img/WechatIMG948.png)");
-                c = 0;
-                $('#p2').css('display', 'block');
-                $('#p3').css('display', 'none');
-                $('#p4').css('display', 'none');
-
-                $('#p5').css('display', 'none');
-                $('#p8').css('display', 'none');
-            }
-            if(c > 20){
-                c = 0;
-                $('#dong')[0].pause();
-                $('#begin').css('display', 'none');
-                $('#p8').css('display', 'block');
-                $('#p3').css('display', 'none');
-                $('#p4').css('display', 'none');
-                $('#p2').css('display', 'none');
-                $('#p5').css('display', 'none');
-            }
-
-            return false
+        function stop() {
+            document.body.style.overflow = 'hidden';
+            document.addEventListener("touchmove", mo, false);//禁止页面滑动
         }
 
-    });
-    function timedCount()
-    {
-        c=c+1;
-        t= window.setTimeout("timedCount()",1000);
-    }
-    window.ontouchstart = function(e) {
-        if (e.target.tagName === 'img')
-            e.preventDefault();
-    };
-    function dump() {
-            window.location.href="https://shop.m.jd.com/?shopId=60947"; //你需要跳转的地址
-    }
-
-    H5FullscreenPage.init({'type':2,'pageShow' : function(dom){
-
-    },'pageHide' : function(dom){
-        //console.log(dom);
-    }});
-
-    function lp() {
-        $('#myaudio')[0].play();
-
-    }
-    function dont() {
+        stop();
         $('#myaudio')[0].pause();
 
-    }
-    function dongo() {
-        $('#power')[0].play();
+        $("#begin").on({
+            touchstart: function (e) {
+                dont();
+                $("#begin").css("background-image", "url(img/发光.png)");
+                $('#myaudio')[0].pause();
+                dongo();
 
-    }
+                tty = window.setTimeout(function () {
+                    $('#power')[0].pause();
+
+                    longPress();
+                    timedCount();
+                }, 6000);
+//            timeOutEvent = setTimeout("longPress()",500);
+//            e.preventDefault();
+            },
+            touchend: function () {
+                window.clearInterval(t);
+                window.clearInterval(t2);
+                window.clearInterval(t3);
+                window.clearInterval(t4);
+                window.clearInterval(tty);
+                $('#myaudio')[0].play();
+                $('#dong')[0].pause();
+                if (c <= 20) {
+                    $('#dong')[0].pause();
+
+                    $("#begin").css("background-image", "url(img/WechatIMG948.png)");
+                    c = 0;
+                    $('#p2').css('display', 'block');
+                    $('#p3').css('display', 'none');
+                    $('#p4').css('display', 'none');
+
+                    $('#p5').css('display', 'none');
+                    $('#p8').css('display', 'none');
+                }
+                if (c > 20) {
+                    c = 0;
+                    $('#dong')[0].pause();
+                    $('#begin').css('display', 'none');
+                    $('#p8').css('display', 'block');
+                    $('#p3').css('display', 'none');
+                    $('#p4').css('display', 'none');
+                    $('#p2').css('display', 'none');
+                    $('#p5').css('display', 'none');
+                }
+
+                return false
+            }
+
+        });
+
+        function timedCount() {
+            c = c + 1;
+            t = window.setTimeout("timedCount()", 1000);
+        }
+
+        window.ontouchstart = function (e) {
+            if (e.target.tagName === 'img')
+                e.preventDefault();
+        };
+
+        function dump() {
+            window.location.href = "https://shop.m.jd.com/?shopId=60947"; //你需要跳转的地址
+        }
+
+        H5FullscreenPage.init({
+            'type': 2, 'pageShow': function (dom) {
+
+            }, 'pageHide': function (dom) {
+                //console.log(dom);
+            }
+        });
+
+        function lp() {
+            $('#myaudio')[0].play();
+
+        }
+
+        function dont() {
+            $('#myaudio')[0].pause();
+
+        }
+
+        function dongo() {
+            $('#power')[0].play();
+
+        }
+
+
 </script>
 </html>
