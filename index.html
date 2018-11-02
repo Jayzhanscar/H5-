@@ -441,7 +441,7 @@ position: absolute;
                     $('#dong')[0].pause();
 
                 }, 18000);
-            }, 2000)
+            }, 3000)
         }
 
         var start = window.setTimeout(function () {
@@ -462,7 +462,7 @@ position: absolute;
                 $('#myaudio')[0].currentTime = 0
             }, 25000);
 
-        }, 2000);
+        }, 3000);
 
         var mo = function (e) {
             e.preventDefault();
@@ -494,15 +494,16 @@ position: absolute;
             },
             touchend: function () {
                 $('#myaudio')[0].currentTime = 0
-                $('#power')[0].currentTime = 0;
+                $('#dong')[0].currentTime = 0;
                 window.clearInterval(t);
                 window.clearInterval(t2);
                 window.clearInterval(t3);
                 window.clearInterval(t4);
                 window.clearInterval(tty);
                 $('#myaudio')[0].play();
-                $('#dong')[0].play();
+                $('#dong')[0].pause();
                 if (c <= 20) {
+                    $('#dong')[0].pause();
 //                    $('#dong')[0].pause();
 
                     $("#begin").css("background-image", "url(img/WechatIMG948.png)");
@@ -515,6 +516,7 @@ position: absolute;
                     $('#p8').css('display', 'none');
                 }
                 if (c > 20) {
+                    $('#dong')[0].pause();
                     c = 0;
 //                    $('#dong')[0].pause();
                     $('#begin').css('display', 'none');
