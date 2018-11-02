@@ -419,13 +419,10 @@ position: absolute;
             $('#p1').css('display', 'none');
             $('#p2').css('display', 'none');
             $('#p3').css('display', 'block');
-            $('#load1').css('display', 'block');
-         audioAutoPlay('dong');
-         $('#dong')[0].play();
+          $('#dong')[0].play();
              t2 = window.setTimeout(function () {
-                 audioAutoPlay('dong');
+                 $('#power')[0].pause();
                 $('#dong')[0].play();
-                $('#power')[0].pause();
                  $('#load1').css('display', 'none');
                 $('#p3').css('display', 'none');
                 $('#p4').css('display', 'block');
@@ -473,7 +470,7 @@ position: absolute;
         document.body.style.overflow='hidden';
         document.addEventListener("touchmove",mo,false);//禁止页面滑动
     }
-    stop();
+    stop(); $('#myaudio')[0].pause();
 
     $("#begin").on({
         touchstart: function(e){
@@ -482,7 +479,7 @@ position: absolute;
             $('#power')[0].play();
             tty = window.setTimeout(function() {
                 $('#power')[0].pause();
-                $('#myaudio')[0].pause();
+
                  longPress();
                 timedCount();
             }, 6000);
@@ -545,6 +542,10 @@ position: absolute;
 
     function lp() {
         $('#myaudio')[0].play();
+
+    }
+    function dont() {
+        $('#myaudio')[0].pause();
 
     }
 </script>
