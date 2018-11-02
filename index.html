@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>换能博士</title>
+    <title>焕能博士</title>
     <link rel="stylesheet" href="http://storage.56iq.net/group1/M00/4F/79/CgoKQ1vA1AKAFrJVAAGsktXFgVw914.css"/>
     <link rel="stylesheet" id="pageloader-css"  href="http://storage.56iq.net/group1/M00/4F/21/CgoKQ1u8eiiAN-0QAAANcd4DM4I644.css" type="text/css" media="all" />
     <link rel="stylesheet" type="text/css" href="H5FullscreenPage.css">
@@ -493,6 +493,7 @@ position: absolute;
 //            e.preventDefault();
             },
             touchend: function () {
+                $('#myaudio')[0].currentTime = 0
                 $('#power')[0].currentTime = 0;
                 window.clearInterval(t);
                 window.clearInterval(t2);
