@@ -418,11 +418,13 @@ position: absolute;
         });
 
         function longPress() {
-            $('#dong')[0].play();
+
+
             $('#p1').css('display', 'none');
             $('#p2').css('display', 'none');
             $('#p3').css('display', 'block');
-            $('#dong')[0].play();
+            $('#power')[0].play();
+
 
             var t2 = window.setTimeout(function () {
                 $('#power')[0].pause();
@@ -497,7 +499,6 @@ position: absolute;
                 window.clearInterval(t4);
                 window.clearInterval(tty);
                 $('#myaudio')[0].play();
-                $('#dong')[0].pause();
                 if (c <= 20) {
                     $('#dong')[0].pause();
 
