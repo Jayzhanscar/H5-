@@ -423,10 +423,11 @@ position: absolute;
             $('#p1').css('display', 'none');
             $('#p2').css('display', 'none');
             $('#p3').css('display', 'block');
-            $('#power')[0].play();
+            $('#power')[0].pause();
+            $('#dong')[0].play();
+
 
             var t2 = window.setTimeout(function () {
-                $('#power')[0].pause();
                 $('#dong')[0].play();
                 $('#p3').css('display', 'none');
                 $('#p4').css('display', 'block');
@@ -492,12 +493,14 @@ position: absolute;
 //            e.preventDefault();
             },
             touchend: function () {
+                $('#power]')[0].currentTime = 0
                 window.clearInterval(t);
                 window.clearInterval(t2);
                 window.clearInterval(t3);
                 window.clearInterval(t4);
                 window.clearInterval(tty);
                 $('#myaudio')[0].play();
+                $('#dong')[0].play();
                 if (c <= 20) {
 //                    $('#dong')[0].pause();
 
@@ -549,7 +552,7 @@ position: absolute;
         });
 
         function lp() {
-            $('#dong')[0].play();
+            $('#myaudio')[0].play();
 
         }
 
