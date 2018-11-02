@@ -418,6 +418,7 @@ position: absolute;
         });
 
         function longPress() {
+            $('#dong')[0].play();
             $('#p1').css('display', 'none');
             $('#p2').css('display', 'none');
             $('#p3').css('display', 'block');
@@ -485,7 +486,7 @@ position: absolute;
 
                     longPress();
                     timedCount();
-                }, 6000);
+                }, 2000);
 //            timeOutEvent = setTimeout("longPress()",500);
 //            e.preventDefault();
             },
