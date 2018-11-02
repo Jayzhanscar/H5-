@@ -499,7 +499,7 @@ position: absolute;
                 window.clearInterval(tty);
                 $('#myaudio')[0].play();
                 if (c <= 20) {
-                    $('#dong')[0].pause();
+//                    $('#dong')[0].pause();
 
                     $("#begin").css("background-image", "url(img/WechatIMG948.png)");
                     c = 0;
@@ -512,7 +512,7 @@ position: absolute;
                 }
                 if (c > 20) {
                     c = 0;
-                    $('#dong')[0].pause();
+//                    $('#dong')[0].pause();
                     $('#begin').css('display', 'none');
                     $('#p8').css('display', 'block');
                     $('#p3').css('display', 'none');
@@ -549,7 +549,7 @@ position: absolute;
         });
 
         function lp() {
-            $('#myaudio')[0].play();
+            $('#dong')[0].play();
 
         }
 
