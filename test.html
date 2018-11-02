@@ -19,6 +19,7 @@
     var source = document.getElementsByTagName('source')[0];
     $(button).bind('click',function(){
         //source.src="http://p2.music.126.net/vDBVFyat4CJcSXI_6-jzbA==/2092370627667073.mp3";//不可以播放
+        var audio = document.getElementsByTagName('audio')[0];
         audio.src = "http://img02.tuke88.com/preview_music/00/00/05/seemp3-5ba0b0f6144741110.mp3";//可以播放
         console.log(audio);
         audio.paused && (audio.play())
