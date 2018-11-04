@@ -191,6 +191,29 @@
         height: 250px;
         background-color: rgb(116, 178, 9);
     }
+    .pic{
+        width: 30px ;
+        height: 30px;
+        z-index: 999;
+        float: right;
+        right: 4%;
+        top:2% ;
+        position: absolute;
+    }
+    .picc{
+        -webkit-animation:rotateImg 2s linear infinite;
+        vertical-align: middle;
+
+    }
+    @keyframes rotateImg {
+        0% {transform : rotate(0deg);}
+    100% {transform : rotate(360deg);}
+    }
+
+    @-webkit-keyframes rotateImg {
+        0%{-webkit-transform : rotate(0deg);}
+        100%{-webkit-transform : rotate(360deg);}
+    }
 </style>
 
 </head>
@@ -223,6 +246,7 @@
 
     </div>
 </div>
+<img   id='play' src="img/oo.png" class="pic pic"   onclick="uu()">
 <div  id="begin"    style="
    z-index: 100;
     background-size: 123%;
@@ -238,7 +262,7 @@
     background-image: url(img/WechatIMG948.png);
 "></div>
 <div  onclick="lp()" id="p2" style="width: 100%;height: 100%;display: block; position: absolute;text-align: center;display: none">
-                        <div style="color: white;position: absolute;top: 2%;text-align: center;width: 100%">触屏打开音乐</div>
+                        <div style="color: white;position: absolute;top: 2%;text-align: center;width: 100%">点击右边图标打开音乐</div>
                         <img  class="iimg" id="load2" src="http://storage.56iq.net/group1/M00/4F/B5/CgoKQ1vEBCmAGo8oAAq5cuKrNFI595.png" style="height: 100%;text-align: center; background-size:100% 100%;"/>
                         <!--
                         <img src="img/logo.png" style="position: absolute;
@@ -592,6 +616,34 @@
 
         }
 
+
+        $(document).ready(function(){
+
+            audioAutoPlay();
+        });
+        function audioAutoPlay() {
+            var audio = document.getElementById('myaudio');
+            audio.play();
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                audio.play();
+            }, false);
+        }
+
+
+
+
+        function uu() {
+            // 播放暂停音乐
+            if($("#play").hasClass("picc")){
+                $("#play").removeClass("picc");
+                $('#myaudio')[0].pause()
+
+            }
+            else {
+                $("#play").addClass("picc");
+                $('#myaudio')[0].play()
+            }
+        }
 
 </script>
 </html>
